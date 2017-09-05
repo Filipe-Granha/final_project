@@ -7,6 +7,7 @@ class PropertyForm extends React.Component {
     this.handleRoomsChange = this.handleRoomsChange.bind(this)
     this.handleCounciltaxChange = this.handleCounciltaxChange.bind(this)
     this.handleRentChange = this.handleRentChange.bind(this)
+    this.handleAdd = this.handleAdd.bind(this)
     this.state = {
       location:"",
       rooms:"",
@@ -31,7 +32,8 @@ handleRentChange(event) {
   this.setState({rent: event.target.value})
 }
 
-handleSubmit(event){
+handleAdd(event){
+  event.preventDefault();
   const location = this.state.location.trim();
   const rooms = this.state.rooms.trim();
   const counciltax = this.state.counciltax.trim();
@@ -39,13 +41,13 @@ handleSubmit(event){
   if(!location || !rooms || !counciltax || !rent){
     return;
   }
-  this.props.onPropertySubmit({location:location, rooms:rooms, counciltax:counciltax, rent:rent})
+  this.props.onPropertyAdd({location:location, rooms:rooms, counciltax:counciltax, rent:rent})
   this.setState({location:"", rooms:"", counciltax:"", rent:""})
 }
 
   render(){
     return (
-      <form className = "propertyForm" onSubmit = {this.handleSubmit}>
+      <form className = "propertyForm" onSubmit = {this.handleAdd}>
       <input
       type="text"
       placeholder="Location"

@@ -7,8 +7,9 @@ class Property extends React.Component {
   render() {
     return (
       <div className="property">
-            <h4 className="propertyLocation"> { this.props.location } </h4>
             { this.props.children }
+            <input type="submit" value="Edit"/>
+            <input type="submit" value="Delete"/>
             </div>
     );
   }

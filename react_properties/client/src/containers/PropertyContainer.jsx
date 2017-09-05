@@ -25,11 +25,11 @@ componentDidMount() {
   request.send();
 }
 
-handlePropertySubmit(property){
+handlePropertyAdd(property){
 
 }
 
-handlePropertyUpdate(property){
+handlePropertyEdit(property){
 
 }
 
@@ -40,9 +40,9 @@ handlePropertyDelete(property){
   render(){
     return (
       <div>
-        <h2>Property Container</h2>
-        <PropertyForm onPropertySubmit={this.handlePropertySubmit}/>
-        <PropertyList data = {this.state.data}/>
+        <h2>Property Management App</h2>
+        <PropertyForm onPropertyAdd={this.handlePropertyAdd}/>
+        <PropertyList properties = {this.state.properties}/>
       </div>
     );
   }
