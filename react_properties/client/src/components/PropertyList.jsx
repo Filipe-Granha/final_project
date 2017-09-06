@@ -5,12 +5,23 @@ import PropertyForm from './PropertyForm.jsx'
 class PropertyList extends React.Component {
   constructor(props) {
     super(props);
+    this.handleDelete = this.handleDelete.bind(this)
+    
   }
+  
+  handleDelete(key) {
+   
+    this.props.onPropertyDelete(key)
+  }
+
+  
+  
   render() {
     const dataList = this.props.properties.map(function(property){
       return(
-        <Property key = {property.id}>
-        
+        <Property key = {property.id} >
+
+        <div class="boxForm">
         <div className="propertiesBody">
         <table className="tableBody">
         <thead className="tableHead-head">
@@ -28,12 +39,13 @@ class PropertyList extends React.Component {
             <td>£{property.counciltax}</td>
             <td>£{property.rent}</td>
           </tr>
-          <tr>
-          <td><input type="submit" value="Edit"></input></td>
-          <td><input type="submit" value="Delete"></input></td>
-          </tr>
         </tbody>
         </table>
+        <div class="boxForm">
+        <button className='buttondelete' >Delete</button>
+        <button className='buttonedit' >Edit</button>
+        </div>
+        </div>
         </div>
         </Property>
         );

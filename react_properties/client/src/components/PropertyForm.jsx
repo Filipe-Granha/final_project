@@ -49,24 +49,28 @@ handleAdd(event){
     return (
       <form className = "propertyForm" onSubmit = {this.handleAdd}>
       <input
+      className="input-form"
       type="text"
       placeholder="Location"
       value={this.state.location}
       onChange={this.handleLocationChange}
       />
       <input
+      className="input-form"
       type="text"
       placeholder="Number of Rooms"
       value={this.state.rooms}
       onChange={this.handleRoomsChange}
       />
       <input
+      className="input-form"
       type="text"
       placeholder="Council Tax"
       value={this.state.counciltax}
       onChange={this.handleCounciltaxChange}
       />
       <input
+      className="input-form"
       type="text"
       placeholder="Rent"
       value={this.state.rent}
