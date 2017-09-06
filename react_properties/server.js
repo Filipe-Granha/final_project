@@ -1,12 +1,14 @@
 var express = require('express');
 var app = express();
 var path = require('path')
+var bodyParser = require ('body-parser')
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
 app.use(express.static('client/build'));
+app.use(bodyParser.json());
 
 
 var server = app.listen(3000, function () {

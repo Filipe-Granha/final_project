@@ -1,6 +1,7 @@
 import React from 'react';
 import PropertyForm from '../components/PropertyForm';
 import PropertyList from '../components/PropertyList';
+import Property from '../components/Property'
 
 class PropertyContainer extends React.Component {
   constructor(props){
@@ -8,6 +9,8 @@ class PropertyContainer extends React.Component {
     this.state = {
       properties:[]
     };
+    this.handlePropertyAdd = this.handlePropertyAdd.bind(this)
+
   }
 
 componentDidMount() {
@@ -25,25 +28,43 @@ componentDidMount() {
   request.send();
 }
 
-handlePropertyAdd(property){
+handlePropertyAdd(anything){
+  const headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  const options = {
+    method: "POST",
+    headers,
+    body: JSON.stringify(anything)
+  };
+
+  const requestAdd = new Request("http://localhost:5000/properties",options);
+  const promise = fetch(requestAdd);
+  promise.then((response) => {
+    if(response.status === 200){
+      response.json().then((data) => {
+        this.state.properties.unshift(data)
+        this.setState({properties: this.state.properties})
+      })
+    }
+  })
+}
+  
+
+handlePropertyEdit(){
 
 }
 
-handlePropertyEdit(property){
+handlePropertyDelete(){
 
 }
 
-handlePropertyDelete(property){
-
-}
-
-  render(){
-    return (
-      <div>
+render(){
+  return (
+    <div>
         <h2>Property Management App</h2>
         <PropertyForm onPropertyAdd={this.handlePropertyAdd}/>
         <PropertyList properties = {this.state.properties}/>
-      </div>
+    </div>
     );
   }
 }

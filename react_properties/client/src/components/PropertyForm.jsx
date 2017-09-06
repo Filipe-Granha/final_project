@@ -41,8 +41,8 @@ handleAdd(event){
   if(!location || !rooms || !counciltax || !rent){
     return;
   }
-  this.props.onPropertyAdd({location:location, rooms:rooms, counciltax:counciltax, rent:rent})
-  this.setState({location:"", rooms:"", counciltax:"", rent:""})
+  this.props.onPropertyAdd({location:location, rooms:rooms, counciltax:counciltax, rent:rent}) // adds to list 
+  this.setState({location:"", rooms:"", counciltax:"", rent:""}) // sets form back to empty
 }
 
   render(){

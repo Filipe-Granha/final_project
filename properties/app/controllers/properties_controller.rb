@@ -18,7 +18,6 @@ class PropertiesController < ApplicationController
 
   def property_params
     params.require(:property).permit([:location, :rooms, :counciltax, :rent])
-    puts params
   end
 
   def create

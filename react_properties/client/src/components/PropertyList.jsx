@@ -1,9 +1,10 @@
 import React from 'react';
 import Property from './Property.jsx'
+import PropertyForm from './PropertyForm.jsx'
 
 class PropertyList extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
   render() {
     const dataList = this.props.properties.map(function(property){
@@ -26,6 +27,10 @@ class PropertyList extends React.Component {
             <td>{property.rooms}</td> 
             <td>£{property.counciltax}</td>
             <td>£{property.rent}</td>
+          </tr>
+          <tr>
+          <td><input type="submit" value="Edit"></input></td>
+          <td><input type="submit" value="Delete"></input></td>
           </tr>
         </tbody>
         </table>
