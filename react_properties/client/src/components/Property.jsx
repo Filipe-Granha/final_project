@@ -1,26 +1,31 @@
 import React from 'react';
-///import PropertyContainer from '../containers/PropertyContainer.jsx'
+import PropertyContainer from '../containers/PropertyContainer.jsx'
 
 class Property extends React.Component {
   constructor(props) {
     super(props);
-    this.handleDelete = this.handleDelete.bind(this) 
+    this.handlePropertyDelete = this.handlePropertyDelete.bind(this) 
   }
 
   handleEdit(event) {
     event.preventDefault();
   }
 
-  handleDelete() {
-    this.props.onPropertyDelete()
+  handlePropertyDelete(id){
+    const url = "http://localhost:5000/properties/id";
+    const request = new XMLHttpRequest();
+    request.open("DELETE", url)
+    request.send();
   }
-
 
   render() {
     return (
-      <div className="property">
-            { this.props.children }
-        </div>
+      <div>
+      <button className='buttondelete' onClick={this.handlePropertyDelete}>Delete</button>
+      <button className='buttonedit' >Edit</button>
+      { this.props.children }
+      </div>
+        
     );
   }
 }

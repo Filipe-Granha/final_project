@@ -2,6 +2,7 @@ import React from 'react';
 import PropertyForm from '../components/PropertyForm';
 import PropertyList from '../components/PropertyList';
 
+
 class PropertyContainer extends React.Component {
   constructor(props){
     super(props);
@@ -9,8 +10,6 @@ class PropertyContainer extends React.Component {
       properties:[]
     };
     this.handlePropertyAdd = this.handlePropertyAdd.bind(this)
-    this.handlePropertyDelete = this.handlePropertyDelete.bind(this)
-
   }
 
 componentDidMount() {
@@ -54,27 +53,16 @@ handlePropertyEdit(){
 
 }
 
-handlePropertyDelete(id){
-  const url = "http://localhost:5000/properties/" + id;
-  const request = new XMLHttpRequest();
-  request.open("DELETE", url)
 
-  // request.onload = () => {
-  //   if (request.status === 200) {
-  //     const jsonString = request.responseText;
-  //     const data = JSON.parse(jsonString);
-  //     this.setState({properties: data})
-  //   }
-  // }
-  request.send();
-}
+
 
 render(){
   return (
     <div>
         
         <PropertyForm onPropertyAdd={this.handlePropertyAdd}/>
-        <PropertyList properties = {this.state.properties} onPropertyDelete = {this.handlePropertyDelete} />
+        <PropertyList properties = {this.state.properties} />
+        
         
     </div>
     );
