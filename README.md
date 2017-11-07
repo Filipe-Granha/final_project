@@ -31,4 +31,4 @@ Carlos Filipe
 
 ### Acknowledgments
 
-All at CodeClan, instructors, staff and students alike, a big thank you for all your help, support and inspiration!
+All at CodeClan, instructors, staff and students alike, a big thank you for all your help, support and inspiration.
